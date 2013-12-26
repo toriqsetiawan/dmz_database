@@ -1,0 +1,44 @@
+# Setting in mysql server database
+# --------------------------------
+# login into mysql
+
+mysql -u root -p
+
+# somedatabase  = your database name in mysql
+# someuser = user login mysql in webserver connect
+# somehostname = host of webserver
+# password = password login mysql in webserver connect
+
+GRANT ALL PRIVILEGES ON somedatabase.* TO someuser@'somehostname' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+
+
+# Setting in webserver
+# --------------------
+# open your folder (database configuration)
+# setting folowing instruction below
+
+# if using codeigniter
+
+$db['default']['hostname'] = 'mysql_server_host';
+$db['default']['username'] = 'someuser';
+$db['default']['password'] = 'password';
+$db['default']['database'] = 'somedatabase';
+$db['default']['dbdriver'] = 'mysql';
+$db['default']['dbprefix'] = '';
+$db['default']['pconnect'] = TRUE;
+$db['default']['db_debug'] = TRUE;
+$db['default']['cache_on'] = FALSE;
+$db['default']['cachedir'] = '';
+$db['default']['char_set'] = 'utf8';
+$db['default']['dbcollat'] = 'utf8_general_ci';
+$db['default']['swap_pre'] = '';
+$db['default']['autoinit'] = TRUE;
+$db['default']['stricton'] = FALSE;
+
+
+note : 
+1. setting ip address webserver
+2. setting ip address mysql server
+3. test connection (ping ....) 
+4. success
